@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GloX</title>
+  <style>
+    /* Styles globaux */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #03a9f4;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    /* En-tête */
+    header {
+      background-color: #004e89;
+      padding: 15px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    nav .logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    nav .menu {
+      display: flex;
+    }
+
+    nav .menu li {
+      margin-left: 20px;
+    }
+
+    nav .menu a {
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav .menu a:hover {
+      background-color: #03a9f4;
+      border-radius: 5px;
+    }
+
+    /* Section Accueil */
+    .hero {
+      background: linear-gradient(to bottom, rgba(0, 78, 137, 0.8), rgba(0, 78, 137, 0.6)), url('hero-image.jpg') center/cover no-repeat;
+      padding: 100px 20px;
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #03a9f4; /* Blue for the title */
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #f9f9f9;
+    }
+
+    .cta-btn {
+      background-color: #03a9f4;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #0288d1;
+    }
+
+    /* Section À propos */
+    .about {
+      padding: 50px 20px;
+      background-color: #ffffff;
+      color: #333;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .about h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #004e89;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+    }
+
+    .about h2::after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      background-color: #03a9f4;
+      bottom: -10px;
+      left: 25%;
+    }
+
+    .about p {
+      font-size: 18px;
+      color: #666;
+      max-width: 900px;
+      margin: 20px auto;
+      line-height: 1.8;
+      transition: color 0.3s ease;
+    }
+
+    .about p:hover {
+      color: #03a9f4;
+    }
+
+    .about .cta-btn {
+      background-color: #03a9f4;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 5px;
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      margin-top: 30px;
+    }
+
+    .about .cta-btn:hover {
+      background-color: #0288d1;
+    }
+
+    /* Section Applications */
+    .apps {
+      padding: 50px 20px;
+      background-color: #f4f4f9;
+      text-align: center;
+    }
+
+    .apps h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #004e89;
+      font-weight: bold;
+    }
+
+    .apps .platforms {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .apps .platforms div {
+      text-align: center;
+    }
+
+    .apps .platforms a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #03a9f4;
+      color: white;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px;
+    }
+
+    .apps .platforms a:hover {
+      background-color: #0288d1;
+    }
+
+    /* Section Logiciels */
+    .software {
+      padding: 50px 20px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .software h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #004e89;
+      font-weight: bold;
+    }
+
+    .software .link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #03a9f4;
+      color: white;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .software .link:hover {
+      background-color: #0288d1;
+    }
+
+    /* Section Contact */
+    .contact {
+      padding: 50px 20px;
+      background-color: #f4f4f9;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #004e89;
+      font-weight: bold;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact input, .contact textarea {
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact button {
+      padding: 15px;
+      background-color: #03a9f4;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact button:hover {
+      background-color: #0288d1;
+    }
+
+    /* Pied de page */
+    footer {
+      background-color: #004e89;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    footer .social-links a {
+      margin: 0 10px;
+      color: white;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    footer .social-links a:hover {
+      color: #03a9f4;
+    }
+
+    footer .warning {
+      font-size: 12px;
+      color: #f9f9f9;
+      margin-top: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .cta-btn {
+        font-size: 16px;
+        padding: 8px 15px;
+      }
+
+      .about h2 {
+        font-size: 28px;
+      }
+
+      .about p {
+        font-size: 16px;
+      }
+
+      .about .cta-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      .apps .platforms {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .contact form {
+        width: 100%;
+      }
+
+      footer .social-links a {
+        font-size: 18px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- En-tête -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.png" alt="GloX">
+      </div>
+      <ul class="menu">
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#apps">Applications</a></li>
+        <li><a href="#software">Logiciels</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section Accueil -->
+  <section class="hero" id="home">
+    <h2>Bienvenue chez GloX</h2>
+    <p>Découvrez nos solutions innovantes en applications et logiciels</p>
+    <a href="#apps" class="cta-btn">Explorer nos produits</a>
+  </section>
+
+  <!-- Section À propos -->
+  <section class="about" id="about">
+    <h2>À propos de GloX</h2>
+    <p>GloX est une société spécialisée dans le développement d'applications de messagerie, de jeux, et de logiciels de cryptographie. Notre mission est de fournir des solutions modernes et fiables pour tous vos besoins numériques.</p>
+    <a href="#contact" class="cta-btn">Contactez-nous</a>
+  </section>
+
+  <!-- Section Applications -->
+  <section class="apps" id="apps">
+    <h2>Applications disponibles</h2>
+    <h3>Pour télécharger notre application, tapez simplement son nom dans la barre de recherche de votre plateforme de téléchargement préférée.</h3>
+    <div class="platforms">
+      <div>
+        <a href="https://play.google.com" target="_blank">Play Store</a>
+      </div>
+      <div>
+        <a href="https://aptoide.com" target="_blank">Aptoide</a>
+      </div>
+      <div>
+        <a href="https://huawei-appgallery.fr.uptodown.com/android" target="_blank">Huawei Store</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Logiciels -->
+  <section class="software" id="software">
+    <h2>Nos Logiciels</h2>
+    <a href="https://payhip.com/GloXboutique" class="link" target="_blank" >Achetez maintenant sur payhip ou Télécharger et
+    installer notre application
+    Gloxshop sur différentes
+    plateformes de téléchargement, et acquérir nos logiciels pour
+    une expérience optimale.</a>
+  </section>
+
+  <!-- Section Contact -->
+  <section class="contact" id="contact">
+    <h2>Contactez-nous</h2>
+    <form action="https://formspree.io/f/mpwzyyoy" method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <!-- Pied de page -->
+  <footer>
+    <p>&copy; 2024 GloX. Tous droits réservés.</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61567796644770&mibextid=ZbWKwL" target="_blank">Facebook</a>
+      <a href="https://x.com/Glox_support?t=oetq4UKcGdP-OphTQVz4ng&s=o9" target="_blank">Twitter</a>
+    </div>
+    <div class="warning">
+      <p>Attention : Ne partagez jamais vos informations personnelles. GloX ne demande pas d'argent ou d'informations sensibles en dehors de ses plateformes officielles.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
